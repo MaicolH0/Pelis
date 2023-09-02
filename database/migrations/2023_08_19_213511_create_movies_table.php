@@ -25,10 +25,14 @@ return new class extends Migration
 
             //Foreign keys
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')
+                                                            ->onUpdate('cascade')
+                                                            ->onDelete('cascade');
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')
+                                                        ->onUpdate('cascade')
+                                                        ->onDelete('cascade');
 
             $table->timestamps();
         });

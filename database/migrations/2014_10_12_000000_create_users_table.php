@@ -22,7 +22,9 @@ return new class extends Migration
 
             //Foreign keys
             $table->unsignedBigInteger('role_id');
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('role_id')->references('id')->on('roles')
+                                                        ->onUpdate('cascade') //para que cuando se borren los roles también se borren los usuarios en cascada
+                                                        ->onDelete('cascade');//para que cuando se actualicen los roles también se actualicen los usuarios en cascada
 
             $table->rememberToken();
             $table->timestamps();
