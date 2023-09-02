@@ -33,15 +33,17 @@ class UserSeeder extends Seeder
         $user->role_id = 2; //para indicar que es el rol invitado
         $user->save();
 
-        for ($i=0; $i < 10; $i++) { 
-            $user = new User;
-            $user->fullname = "User $i";
-            $user->email = "$i@autonoma.edu.co";
-            $user->phone = "12345$i";
-            $user->photo = "images/no-photo.png";
-            $user->password = "12345678";
-            $user->role_id = 2; //para indicar que es el rol invitado
-            $user->save();
-        }
+        // for ($i=0; $i < 10; $i++) { 
+        //     $user = new User;
+        //     $user->fullname = "User $i";
+        //     $user->email = "$i@autonoma.edu.co";
+        //     $user->phone = "12345$i";
+        //     $user->photo = "images/no-photo.png";
+        //     $user->password = "12345678";
+        //     $user->role_id = 2; //para indicar que es el rol invitado
+        //     $user->save();
+        // }
+
+        User::factory(20)->create();
     }
 }
