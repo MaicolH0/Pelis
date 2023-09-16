@@ -8,7 +8,15 @@ use App\Models\User;
 class TestController extends Controller
 {
     public function test(string $name){
-        dd("Hola $name");
+        // dd("Hola $name");
+        $number = 5;
+        $day = "Monday";
+
+        $users = User::all();
+        return view('test')->with('name',$name)
+                            ->with('number',$number)
+                            ->with('day',$day)
+                            ->with('users',$users);
     }
 
     public function findUser(int $id){
