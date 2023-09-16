@@ -6,7 +6,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <img src="{{ asset('images/elements/register.svg') }}" alt="img" width="150px" class="my-4 img-top-card">
+                <div class="card-header">
+                    <i class="fa fa-user-edit"></i>
+                        Registro
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -76,13 +80,12 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                        <div class="row mb-2 px-4">
+                                <button type="submit" class="btn btn-primary btn-block text-uppercae" style="background-color: #6C63FF">
+                                    Registro
+                                    <i class="fa fa-save"></i>
                                 </button>
                             </div>
-                        </div>
                     </form>
                 </div>
             </div>

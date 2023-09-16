@@ -1,0 +1,25 @@
+/* color: #6C63FF */
+
+.bg-pelis{
+    background-color: #6C63FF;
+}
+
+.btn-pelis{
+    background-color: #6C63FF;
+    color: white;
+}
+
+.btn-pelis:hover{
+    background-color: #6C63FF;
+    color: rgba(255, 255, 255, 0.427);
+}
+
+.card-header-pelis{
+    background-color: #6C63FF;
+    color: white;
+    padding: 1rem 0rem 0.5rem 0rem;
+}
+
+.img-top-card{
+    margin: 0px auto;
+}
