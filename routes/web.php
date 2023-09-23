@@ -30,6 +30,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resources([
     'users' => UserController::class,
-    // 'categories' => CategoryController::class,
+    'categories' => CategoryController::class,
     // 'movies' => CategoryController::class
 ]);

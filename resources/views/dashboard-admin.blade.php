@@ -34,7 +34,7 @@
                         <div class="card text-center">
                             <img src="{{ asset('images/elements/categories.svg') }}" alt="categories" width="140px" class="my-2 img-top-card">
                             <div class="card-body">
-                                <a href="#" class="btn btn-primary btn-block" style="background-color: #2471A3">
+                                <a href="{{ route('categories.index') }}" class="btn btn-primary btn-block" style="background-color: #2471A3">
                                     <i class="fa fa-list-alt"></i>
                                     Módulo Categorias
                                 </a>

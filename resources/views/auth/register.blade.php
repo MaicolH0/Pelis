@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="card">
                 <img src="{{ asset('images/elements/register.svg') }}" alt="img" width="150px" class="my-4 img-top-card">
-                <div class="card-header">
+                <div class="card-header-pelis text-uppercase text-center">
                     <i class="fa fa-user-edit"></i>
                         Registro
                 </div>
