@@ -23,3 +23,25 @@
 .img-top-card{
     margin: 0px auto;
 }
+
+.navbar-brand{
+    font-size: 0.8rem;
+}
+
+h1{
+    color: #2471A3;
+}
+
+ul.pagination{
+    justify-content: center;
+}
+
+ul.pagination .page-item.active .page-link{
+    background-color: #2471A3;
+    border-color: #2c87c4;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+ul.pagination .page-item .page-link{
+    color: #2471A3;
+}
