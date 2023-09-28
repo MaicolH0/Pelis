@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','NovaTV - Crear usuarios')
+@section('title','Pelis - Crear usuarios')
 
 @section('content')
 

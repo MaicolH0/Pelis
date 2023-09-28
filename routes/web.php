@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +32,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resources([
     'users' => UserController::class,
     'categories' => CategoryController::class,
+    'movies' => MovieController::class,
     // 'movies' => CategoryController::class
 ]);

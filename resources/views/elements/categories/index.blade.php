@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'NovaTV - Lista de Usuarios')
+@section('title', 'Pelis - Listar categorias')
 
 @section('content')
     <div class="row">

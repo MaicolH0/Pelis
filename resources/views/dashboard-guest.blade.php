@@ -22,7 +22,7 @@
                         <div class="card text-center">
                             <img src="{{ asset('images/elements/movies.svg') }}" alt="movies" width="252px" class="my-2 img-top-card">
                             <div class="card-body">
-                                <a href="#" class="btn btn-primary btn-block" style="background-color: #2471A3">
+                                <a href="{{route('movies.index')}}" class="btn btn-primary btn-block" style="background-color: #2471A3">
                                     <i class="fa fa-film"></i>
                                     Módulo Peliculas
                                 </a>

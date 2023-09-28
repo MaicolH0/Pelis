@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','NovaTV - Ver usuario')
+@section('title','Pelis - Ver usuario')
 
 @section('content')
 
@@ -75,6 +75,4 @@
             </form>
         </div>
     </div>
-
-@endsection
 

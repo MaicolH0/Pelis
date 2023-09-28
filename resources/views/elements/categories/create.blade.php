@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','NovaTV - Crear usuarios')
+@section('title','Pelis - Crear categoria')
 
 @section('content')
 
@@ -58,9 +58,9 @@
                         @enderror
                     </div>
                 </div>
-
+                
                 <div class="d-grid gap-2 mb-3">
-                    <button type="submit" class="btn btn-primary btn-block" style="background-color: #2471A3"> Agregar <i class="fa fa-save mx-2"></i></button>
+                    <button type="submit" class="btn btn-primary btn-block" style="background-color: #2471A3"> Crear <i class="fa fa-save mx-2"></i></button>
                 </div>
 
             </form>
