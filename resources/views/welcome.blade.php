@@ -89,16 +89,56 @@
                                 </div>
 
                                 <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laravel News</h2>
+@extends('layouts.app')
+@section('title','NovaTV - Página de Bienvenida')
+
+@section('content')
+    <div class="row jusrify-content-center">
+        <div class="col-md-12">
+            <h3 style="color: #2471A3"><i class="fas fa-tag"></i> Peliculas</h3>
+
+            <hr>
+            <div class="owl-carousel owl-them">
+                @foreach ($movies as $movie)
+                    <div class="slider" style="background-image: url({{ $movie->image }})">
+                        <p>
+                            {{ $movie->description }}
+                        </p>
+                    </div>
+                @endforeach
 
                                 <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                                     Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
                                 </p>
                             </div>
+            </div>
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
                             </svg>
                         </a>
+        </div>
+
+    </div> 
+    {{--  --}}
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h3 style="color: #2471A3"><i class="fas fa-filter"></i> Filtrar Peliculas por Categoría</h3>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+
+            <select name="filter" id="filter" class="form-select form-control" >
+                    <option value="-2">Seleccione...</option>
+                    <option value="-1">Todos</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+            </select>
+
+        </div>
 
                         <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                             <div>
@@ -106,6 +146,43 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
                                     </svg>
+    </div>
+    <div class="loader d-none text-center my-5">
+        <img src="{{ asset('images/elements/loader.gif') }}" alt="gif" width="100px">
+    </div>
+    <br><br>
+    <div class="row justify-content-center" id="list-filter">
+        <div class="col-md-12">
+            @foreach ($categories as $category)
+                <h3 class="mt-5">{{ $category->name }}</h3>
+                <hr>
+                <div class="row" id="list-movies">
+                    @foreach ($movies as $movie)
+                        @if ($movie->category_id == $category->id)
+                            <div class="col-md-4 mb-4">
+                                <div class="card mb-3" style="max-width: 540px; min-height:194px;">
+                                    <div class="row no-gutters">
+                                        <div class="col-md-4">
+                                            <figure class="img-fcard" style="background-image: url({{ asset($movie->image) }});"></figure>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ $movie->name }}</h5>
+                                                <p class="card-text">
+                                                    @php
+                                                        $td = \Carbon\Carbon::now();
+                                                        $dt = \Carbon\Carbon::parse($movie->created_at);
+                                                    @endphp
+                                                    <small>
+                                                        <strong>Creado hace:</strong> {{ $td->diffForHumans($dt,1) }}
+                                                    </small>
+                                                </p>
+                                                <a href="{{ route('movies.show',$movie->id) }}" class="btn btn-outline-primary btn-block">
+                                                    <i class="fas fa-search-plus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</h2>
@@ -133,8 +210,14 @@
                     <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
+                        @endif
+                    @endforeach
                 </div>
             </div>
+
+            @endforeach
         </div>
     </body>
 </html>
+    </div>
+@endsection
